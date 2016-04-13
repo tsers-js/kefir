@@ -15,6 +15,9 @@ Object.assign(KefirAdapter.prototype, {
   get() {
     return this.o
   },
+  getp() {
+    return this.o.toProperty()
+  },
   multicast() {
     return new KefirAdapter(this.o)
   },
@@ -42,9 +45,6 @@ Object.assign(KefirAdapter.prototype, {
   },
   skipDuplicates(eq) {
     return new KefirAdapter(this.o.skipDuplicates(eq))
-  },
-  toProperty() {
-    return new KefirAdapter(this.o.toProperty())
   },
   hot(toProp) {
     const obs = toProp ? this.o.toProperty() : this.o
