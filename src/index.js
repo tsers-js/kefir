@@ -25,7 +25,7 @@ Object.assign(KefirAdapter.prototype, {
     return new KefirAdapter(this.o.map(fn))
   },
   tap(fn) {
-    return new KefirAdapter(this.o.map(x => (fn() || true) && x))
+    return new KefirAdapter(this.o.map(x => (fn(x) || true) && x))
   },
   filter(fn) {
     return new KefirAdapter(this.o.filter(fn))
